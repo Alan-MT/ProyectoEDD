@@ -51,7 +51,7 @@ public class DataBase {
                 String ruta = "";
                 LectorArchivo lector = new LectorArchivo();
                 JFileChooser archivo = new JFileChooser();
-                FileNameExtensionFilter filtrado = new FileNameExtensionFilter("XML", "xml");
+                FileNameExtensionFilter filtrado = new FileNameExtensionFilter("XML", "xml");   
                 archivo.setFileFilter(filtrado);
                 int respuesta = archivo.showOpenDialog(carga.getBotonCargaM());
                 if (respuesta == JFileChooser.APPROVE_OPTION) {
@@ -63,9 +63,6 @@ public class DataBase {
         });
     }
 
-    public void Iniciar() {
-
-    }
 
     public void showPanel(JPanel segundo) {
         segundo.setSize(795, 550);
@@ -76,9 +73,5 @@ public class DataBase {
         fra.getPanelCambiante().repaint();
     }
 
-    public void CargarDatos() {
-       
-
-    }
 
 }
