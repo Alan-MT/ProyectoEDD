@@ -10,6 +10,8 @@ package com.mycompany.proyectofinal;
  */
 public class LectorArchivo {
     
+    public String linea;
+    
     public LectorArchivo(){
     }
     
