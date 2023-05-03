@@ -13,6 +13,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +25,8 @@ public class DataBase {
     public CargaMasiva carga;
     public Eliminar borrar;
     public IngresoTabla ingreso;
+    private String[] tablas;
+    private String[] PrimaryK;
 
     public DataBase() {
         this.fra = new principalScreen();
@@ -48,6 +51,7 @@ public class DataBase {
                 //Boton de abrir el archivo xml
                  carga.getBotonCargaM().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                
                 String ruta = "";
                 LectorArchivo lector = new LectorArchivo();
                 JFileChooser archivo = new JFileChooser();
@@ -56,9 +60,12 @@ public class DataBase {
                 int respuesta = archivo.showOpenDialog(carga.getBotonCargaM());
                 if (respuesta == JFileChooser.APPROVE_OPTION) {
                     ruta = archivo.getSelectedFile().getPath();
+                    tablas = new String[10];
+                    PrimaryK = new String[10];
                 }
-                lector.lector(ruta);
+                lector.lector(ruta, tablas, PrimaryK);
                 JOptionPane.showConfirmDialog(carga, ruta);
+                mostrarTabla(tablas, PrimaryK);
             }
         });
     }
@@ -71,6 +78,17 @@ public class DataBase {
         fra.getPanelCambiante().add(segundo, BorderLayout.CENTER);
         fra.getPanelCambiante().revalidate();
         fra.getPanelCambiante().repaint();
+    }
+    
+    public void mostrarTabla(String[] tabla, String[] KeyP){
+        String nombre[] = {"Nombre","Key Primary", "Accion"};
+        String data[][] = new String[tabla.length][3];
+        for(int i = 0;i<tabla.length;i++){
+            data[i][0] = tabla[i];
+            data[i][1] = KeyP[i];
+            data[i][2] = "nada";
+        }
+        carga.getTablaCargaMasiva().setModel(new DefaultTableModel(data, nombre));
     }
 
 

@@ -13,7 +13,6 @@ public class ProyectoFinal {
     public static void main(String[] args) {
         
         DataBase data = new DataBase();
-        data.Iniciar();
         
     }
 }
