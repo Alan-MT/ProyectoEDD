@@ -47,7 +47,7 @@ public class principalScreen extends javax.swing.JDialog {
         Cargar.setText("Ejecutar");
 
         ComboBoxDatos.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        ComboBoxDatos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carga de Datos", "Ingreso de Tablas", "Eliminacion", "Reporte" }));
+        ComboBoxDatos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carga de Datos", "Ingreso de Tablas", "Eliminacion", "Reporte", "Mostrar Tablas" }));
 
         javax.swing.GroupLayout PanelCambianteLayout = new javax.swing.GroupLayout(PanelCambiante);
         PanelCambiante.setLayout(PanelCambianteLayout);
@@ -93,7 +93,7 @@ public class principalScreen extends javax.swing.JDialog {
                         .addComponent(Cargar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(PanelCambiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );

@@ -34,7 +34,7 @@ public class IngresoTabla extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         nombreTabla = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        BotonIngreso = new javax.swing.JButton();
+        BotonIngresoManual = new javax.swing.JButton();
         nombreLLaveP = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         TablasIngresadas = new javax.swing.JComboBox<>();
@@ -48,7 +48,7 @@ public class IngresoTabla extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabel2.setText("Nombre de Tabla");
 
-        BotonIngreso.setText("Ingresar");
+        BotonIngresoManual.setText("Ingresar");
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabel3.setText("Nombre de Llave primaria");
@@ -71,7 +71,7 @@ public class IngresoTabla extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
                             .addComponent(nombreTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonIngresoManual, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TablasIngresadas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(89, 89, 89)
                         .addGroup(panelIngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +93,7 @@ public class IngresoTabla extends javax.swing.JPanel {
                     .addComponent(nombreTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombreLLaveP, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(BotonIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonIngresoManual, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -137,13 +137,14 @@ public class IngresoTabla extends javax.swing.JPanel {
         this.nombreTabla = nombreTabla;
     }
 
-    public JButton getBotonIngreso() {
-        return BotonIngreso;
+    public JButton getBotonIngresoManual() {
+        return BotonIngresoManual;
     }
-    
+
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonIngreso;
+    private javax.swing.JButton BotonIngresoManual;
     private javax.swing.JComboBox<String> TablasIngresadas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

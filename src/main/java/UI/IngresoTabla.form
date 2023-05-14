@@ -48,7 +48,7 @@
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <Component id="nombreTabla" min="-2" pref="236" max="-2" attributes="0"/>
-                              <Component id="BotonIngreso" min="-2" pref="116" max="-2" attributes="0"/>
+                              <Component id="BotonIngresoManual" min="-2" pref="116" max="-2" attributes="0"/>
                               <Component id="TablasIngresadas" min="-2" pref="170" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
@@ -78,7 +78,7 @@
                       <Component id="nombreLLaveP" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="BotonIngreso" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="BotonIngresoManual" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -107,7 +107,7 @@
             <Property name="text" type="java.lang.String" value="Nombre de Tabla"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="BotonIngreso">
+        <Component class="javax.swing.JButton" name="BotonIngresoManual">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingresar"/>
           </Properties>
