@@ -4,6 +4,9 @@ import UI.*;
 import java.awt.BorderLayout;
 import static java.awt.SystemColor.text;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -22,6 +25,8 @@ public class DataBase {
     private String[] PrimaryK;
     private String[] tablas2;
     public Mostrar mostrar;
+    public ArrayList<String> listaTotal;
+    public String[] tablaCarga;
 
     public DataBase() {
         this.fra = new principalScreen();
@@ -30,6 +35,7 @@ public class DataBase {
         this.borrar = new Eliminar();
         this.ingreso = new IngresoTabla();
         this.mostrar = new Mostrar();
+        this.listaTotal = new ArrayList<>();
         
         
         //boton para Cargar el jcomboBox
@@ -47,7 +53,7 @@ public class DataBase {
                             for(int i=0; i<ingreso.getTablasIngresadas().getItemCount();i++){
                                 tablas2[i] = ingreso.getTablasIngresadas().getItemAt(i);
                             }
-                            llenarMostrar(mostrar.getTablasMostrar(), tablas, tablas2);
+                            llenarMostrar(mostrar.getTablasMostrar(), tablaCarga, tablas2);
                             
                 }
             }
@@ -72,6 +78,7 @@ public class DataBase {
                 lector.lector(ruta, tablas, PrimaryK);
                 JOptionPane.showMessageDialog(carga, ruta);
                 mostrarTabla(tablas, PrimaryK);
+                carga.getTablaCargaMasiva().setEnabled(false);
             }
         });
                  
@@ -89,6 +96,21 @@ public class DataBase {
                     } 
                            
                 });
+                
+                // boton carga masiva ejectura
+                carga.getBotonEjecutar().addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        if(carga.getMasivaComboBox().getSelectedItem().equals("Editar Tabla")){
+                            carga.getTablaCargaMasiva().enable(true);
+                        }else{
+                            DefaultTableModel model = (DefaultTableModel) carga.getTablaCargaMasiva().getModel();
+                            model.setRowCount(0);
+                            tablaCarga = new String[10];
+                            tablaCarga = tablas;
+
+                        }
+                    }
+                });
     
                         }
 
@@ -105,42 +127,59 @@ public class DataBase {
     public void mostrarTabla(String[] tabla, String[] KeyP){
         DefaultTableModel model = (DefaultTableModel) carga.getTablaCargaMasiva().getModel();
         model.setRowCount(0);
-        String nombre[] = {"Nombre","Key Primary", "Accion"};
-        String data[][] = new String[tabla.length][3];
+        String nombre[] = {"Nombre","Key Primary"};
+        String data[][] = new String[tabla.length][2];
         for(int i = 0;i<tabla.length;i++){
             if(tabla[i] != null && !tabla[i].isEmpty()){
             data[i][0] = tabla[i];
             data[i][1] = KeyP[i];
-            data[i][2] = "nada";
             }
         }
         carga.getTablaCargaMasiva().setModel(new DefaultTableModel(data, nombre));
-    }
+    }   
 
     public void llenarMostrar(JComboBox lista, String[] tabla, String[] ingresoManual){
+        lista.removeAllItems();
+
+        // El arreglo no está vacío
         int numLlenos = 0;
-        for (String str : tabla) {
+        int numlleno2 = 0;
+        if (tabla != null) {
+            for (String str : tabla) {
+                if (str != null && !str.isEmpty()) {
+                    numLlenos++;
+                }
+            }
+        }
+        for (String str : ingresoManual) {
             if (str != null && !str.isEmpty()) {
-                numLlenos++;
+                numlleno2++;
             }
         }
-        String[] nombres = new String[numLlenos+ingresoManual.length];
-        int tabla2 = 0;
-        for(int i =0; i<nombres.length;i++){
-            if(i < numLlenos){
-                nombres[i] = tabla[i];
-                
-            } else {
-                nombres[i] = ingresoManual[tabla2];
-                tabla2++;
-            }
-            
+        if (numLlenos > 0) {
+            listaTotal.addAll(Arrays.asList(tabla));
         }
-        lista.setModel(new DefaultComboBoxModel<>(nombres));
-        
+        if (numlleno2 > 0) {
+            listaTotal.addAll(Arrays.asList(ingresoManual));
+        }
+        HashSet<String> hashSet = new HashSet<>(listaTotal);
+        listaTotal.clear();
+        listaTotal.addAll(hashSet);
+        for (String elemento : listaTotal) {
+            lista.addItem(elemento);
+        }
+
     }
+
+            
+            //lista.setModel(new DefaultComboBoxModel<>(nombres));
+        
+
+
+}
+
    
     
 
 
-}
+
